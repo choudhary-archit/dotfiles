@@ -12,7 +12,7 @@
         echo
     }
 
-# Setting GPG TTY
+# Setting TTY for GPG 
 
     export GPG_TTY=$(tty)
 

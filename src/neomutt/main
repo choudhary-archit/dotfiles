@@ -1,0 +1,26 @@
+source ~/.config/mutt/private
+
+set mail_check_stats
+set sidebar_visible = yes
+set sidebar_width = 20
+set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
+set sidebar_short_path
+
+bind index,pager \Cp sidebar-prev
+bind index,pager \Cn sidebar-next
+bind index,pager \Cd sidebar-page-down
+bind index,pager \Cu sidebar-page-up
+bind index,pager G sidebar-open
+bind index,pager B sidebar-toggle-visible
+
+color sidebar_highlight black color8
+color sidebar_new green black
+
+set mailcap_path = ~/.mailcap
+set edit_headers
+
+set query_command="abook --mutt-query '%s'"
+macro index,pager a \
+    "<pipe-message>abook --add-email-quiet<return>" \
+    "Add this sender to abook"
+bind editor <Tab> complete-query
